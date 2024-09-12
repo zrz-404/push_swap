@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/12 10:57:36 by jroseiro         ###   ########.fr       */
+/*   Created: 2024/09/12 11:09:37 by jroseiro          #+#    #+#             */
+/*   Updated: 2024/09/12 11:51:03 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/include.h"
 
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
-# include <stdlib.h>
-# include <limits.h>
+void	init_A(t_node **stack_A, char **av)
+{
+	long	n;
+	int		i;
 
-typedef struct s_node {
-	int			val;
-	int			index;
-	int			p_cost;
-	bool		cheapest;
-	bool		above_median;
-
-	struct s_node		*next;
-	struct s_node		*prev;
-	struct s_node 	*target;
-} t_node;
-
-
-
-#endif
+	i = 0;
+	while (av[i])
+	{
+		if (sntx_error(av[i]))
+			f_errors(stack_A);
+		n = f_atol(av[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			f_errors(stack_A);
+		if (dup_error(*stack_A, (int)n))
+			f_errors(stack_A);
+		append_node(stack_A, (int)n);
+		i++;
+	}
+}

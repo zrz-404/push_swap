@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/12 10:57:36 by jroseiro         ###   ########.fr       */
+/*   Created: 2024/06/20 17:36:38 by jroseiro          #+#    #+#             */
+/*   Updated: 2024/06/20 17:53:01 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
-# include <stdlib.h>
-# include <limits.h>
+void	ft_putendl_fd(char *s, int fd)
+{
+	int	i;
 
-typedef struct s_node {
-	int			val;
-	int			index;
-	int			p_cost;
-	bool		cheapest;
-	bool		above_median;
-
-	struct s_node		*next;
-	struct s_node		*prev;
-	struct s_node 	*target;
-} t_node;
-
-
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
+}

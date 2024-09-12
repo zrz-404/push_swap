@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/12 10:57:36 by jroseiro         ###   ########.fr       */
+/*   Created: 2024/06/10 16:37:08 by jroseiro          #+#    #+#             */
+/*   Updated: 2024/06/12 09:29:20 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
-# include <stdlib.h>
-# include <limits.h>
-
-typedef struct s_node {
-	int			val;
-	int			index;
-	int			p_cost;
-	bool		cheapest;
-	bool		above_median;
-
-	struct s_node		*next;
-	struct s_node		*prev;
-	struct s_node 	*target;
-} t_node;
-
-
-
-#endif
+int	ft_isascii(int arg)
+{
+	return ((arg >= 0) && (arg <= 127));
+}

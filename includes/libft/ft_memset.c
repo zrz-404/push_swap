@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/12 10:57:36 by jroseiro         ###   ########.fr       */
+/*   Created: 2024/06/11 12:52:27 by jroseiro          #+#    #+#             */
+/*   Updated: 2024/06/17 14:28:23 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
-# include <stdlib.h>
-# include <limits.h>
+void	*ft_memset(void *ptr, int x, size_t n)
+{
+	size_t	p;
 
-typedef struct s_node {
-	int			val;
-	int			index;
-	int			p_cost;
-	bool		cheapest;
-	bool		above_median;
-
-	struct s_node		*next;
-	struct s_node		*prev;
-	struct s_node 	*target;
-} t_node;
-
-
-
-#endif
+	p = 0;
+	while (n != 0)
+	{
+		((unsigned char *)ptr)[p] = x;
+		p++;
+		n--;
+	}
+	return (ptr);
+}

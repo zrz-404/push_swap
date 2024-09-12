@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   ft_c_render.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/12 10:57:36 by jroseiro         ###   ########.fr       */
+/*   Created: 2024/06/27 12:51:03 by jroseiro          #+#    #+#             */
+/*   Updated: 2024/07/19 08:59:14 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ft_printf.h"
 
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
-# include <stdlib.h>
-# include <limits.h>
+void	ft_pchar(t_data *data, int c)
+{
+	int	width;
 
-typedef struct s_node {
-	int			val;
-	int			index;
-	int			p_cost;
-	bool		cheapest;
-	bool		above_median;
-
-	struct s_node		*next;
-	struct s_node		*prev;
-	struct s_node 	*target;
-} t_node;
-
-
-
-#endif
+	width = data->fmt.width;
+	if (width > 1)
+	{
+		if (data->fmt.left)
+		{
+			ft_pchar_buf_n((char)c, 1, data);
+			ft_pchar_buf_n(' ', width -1, data);
+		}
+		else
+		{
+			ft_pchar_buf_n(' ', width - 1, data);
+			ft_pchar_buf_n((char)c, 1, data);
+		}
+	}
+	else
+		ft_pchar_buf_n((char)c, 1, data);
+}
