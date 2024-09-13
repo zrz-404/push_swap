@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/13 09:13:42 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/09/13 11:12:55 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
+# include <stdbool.h>
 # include <stdlib.h>
 # include <limits.h>
 
