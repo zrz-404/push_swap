@@ -6,22 +6,17 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 18:42:00 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/09/12 11:52:01 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/09/13 10:11:24 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-				/*				PSEUDO CODE				*/
 int main(int ac, char **av)
 {
-	t_node	*stack_A;
-	t_node	*stack_B;
-	
-	stack_A = NULL;
-	stack_B = NULL;
-//Declare pointers to two linked lists, one for stack A and one for stack B
-		//Set both pointers to NULL to avoid undefined behaviour and indicate we're starting with empty stacks
+	t_stack stacks;
+
+	init_stacks(&stacks);
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 	{
 		ft_putstr_fd("Error\n", 3);
@@ -29,19 +24,23 @@ int main(int ac, char **av)
 	}
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
-	init_A(&stack_A, av + 1);
-	if (!stack_sorted(stack_A))
+	init_a(&stacks.stack_a, av + 1);
+	
+	if (!stack_sorted(stacks.stack_a))
 	{
-		if (stack_len(stack_A) == 2)
-			sa(&stack_A, false);
-		else if (stack_len(stack_A) == 3)
-			srt_three(&stack_A);
+		if (stack_len(stacks.stack_a) == 2)
+			sa(&stacks.stack_a, false);
+		else if (stack_len(stacks.stack_a) == 3)
+			srt_three(&stacks.stack_a);
 		else
-			srt_stacks(&stack_A, &stack_B);
+			srt_stacks(&stacks.stack_a, &stacks.stack_b);
 	}
-	f_errors(&stack_A);
+	f_errors(&stacks.stack_a);	
 	return (0);
 }
+
+				/*				PSEUDO CODE				*/
+
 //Handle input count errors. AC must be 2 or more, and the second input must not be empty
 		//If input errors, return error
 
@@ -66,14 +65,6 @@ int main(int ac, char **av)
 //Clean up the stack
 
 
-/*	BASIC UTILS 
-	functions for:
-	- Error handling
-	- Doing the Operations
-	- Measuring stack length
-	- Finding the last node
-	- Finding the Min and Max nodes
-*/
 
 
 

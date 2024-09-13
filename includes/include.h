@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/12 10:57:36 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/09/13 09:13:42 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,20 @@ typedef struct s_node {
 
 	struct s_node		*next;
 	struct s_node		*prev;
-	struct s_node 	*target;
+	struct s_node 		*target;
 } t_node;
+
+typedef struct s_stack {
+	t_node	*stack_a;
+	t_node	*stack_b;
+}	t_stack;
+
+
+// Prototypes
+
+void 	init_stacks(t_stack *stacks);
+int		link_len(struct s_node *p);
+
 
 
 

@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 19:33:16 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/13 09:09:37 by jroseiro         ###   ########.fr       */
+/*   Created: 2024/09/12 16:09:31 by jroseiro          #+#    #+#             */
+/*   Updated: 2024/09/12 16:21:57 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../includes/include.h"
 
+int sntx_error(char *str_n);
 
-int link_len(struct s_node *p)
-{
-	if (p == NULL)
-		return (0);
-	return (link_len(p->next) + 1);
-}
+int dup_error(t_node *stack_A, int n);
 
+void f_stack(t_node **stack);
 
-
-/*	BASIC UTILS 
-	functions for:
-	- Error handling
-	- Doing the Operations
-	- Measuring stack length
-	- Finding the last node
-	- Finding the Min and Max nodes
-*/
+void f_errors(t_node **stack_A);

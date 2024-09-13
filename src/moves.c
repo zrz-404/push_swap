@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 19:33:16 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/13 09:09:37 by jroseiro         ###   ########.fr       */
+/*   Created: 2024/09/12 16:56:17 by jroseiro          #+#    #+#             */
+/*   Updated: 2024/09/12 18:16:55 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
+void sa(); //swap a
 
-int link_len(struct s_node *p)
-{
-	if (p == NULL)
-		return (0);
-	return (link_len(p->next) + 1);
-}
+void sb(); //swap b
 
+void ss(); // sa and sb
 
+void pa(); // push a
 
-/*	BASIC UTILS 
-	functions for:
-	- Error handling
-	- Doing the Operations
-	- Measuring stack length
-	- Finding the last node
-	- Finding the Min and Max nodes
-*/
+void pb(); //push b
+
+void ra(); // rotate a
+
+void rb(); // rotate b
+
+void rr(); // ra and rb
+
+void rra(); // reverse rotate a
+
+void rrb(); // reverse rotate b
+
+void rrr(); // rra and rrb
