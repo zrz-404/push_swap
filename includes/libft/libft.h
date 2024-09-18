@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:40:32 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/08/28 11:35:57 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:12:18 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>  // For EOF constant
 # include <stdlib.h> // For malloc
 # include <unistd.h>
+# include "./printf/ft_printf.h" // printf implementation
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *ptr, size_t n);
