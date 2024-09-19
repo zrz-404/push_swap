@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:56:17 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/09/17 16:10:03 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/09/18 13:03:03 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ static void swap(t_node **head)
 void sa(t_stack *stack) //swap 2 first nodes a
 {
 	swap(&(stack->stack_a));
-	ft_putstr_fd("sa", 1);
+	ft_printf("sa\n");
 }
 
 void sb(t_stack *stack) //swap 2 first nodes b
 {
 	swap(&(stack->stack_b));
-	ft_putstr_fd("sb", 1);
+	ft_printf("sb\n");
 }
 
 void ss(t_stack *stack) // sa and sb
 {
 	swap(&(stack->stack_a));
 	swap(&(stack->stack_b));
-	ft_putstr_fd("ss", 1);
+	ft_printf("ss\n");
 }
 
 static void rotate(t_node **stack)
@@ -146,7 +146,6 @@ void pa(t_stack *stack) // push a (top of b to top of a)
 {
 	push(&(stack->stack_b), &(stack->stack_a));
 	ft_printf("pa\n");
-
 }
 void pb(t_stack *stack) //push b (top of a to top of b)
 {
