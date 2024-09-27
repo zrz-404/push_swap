@@ -6,12 +6,13 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/19 21:15:13 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/09/27 10:23:53 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
 
 # include "./libft/libft.h"
 # include <stdbool.h>
@@ -36,10 +37,16 @@ typedef struct s_stack {
 }	t_stack;
 
 
-// Prototypes
+// Stack init
 
-void 	init_stacks(t_stack *stacks);
+// Nodes init
+t_node	*get_cheapest(t_node *stack);
+
+// Stack utils
 int		link_len(struct s_node *p);
+void 	init_stacks(t_stack *stacks);
+
+// Moves
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
 void	ss(t_stack *stack);
@@ -51,5 +58,11 @@ void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
 void	pa(t_stack *stack);
 void	pb(t_stack *stack);
+
+// Algorithm stuff
+void	sort_stacks(t_stack *stack);
+
+
+// Error Handling
 
 #endif

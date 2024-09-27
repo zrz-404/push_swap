@@ -6,11 +6,11 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:27:08 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/09/19 21:37:22 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/09/26 13:33:26 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
 
 void	sort_three(t_stack *stack)
 {
