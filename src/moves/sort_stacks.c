@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:04:28 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/09/26 14:44:58 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/07 13:17:39 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sort_stacks(t_stack *stack)
 {
 	int len_a;
 	
-	len_a = link_len;
+	len_a = link_len(stack->stack_a);
 	if (len_a-- > 3 && !stack_sorted(*stack))
 		pb(stack->stack_a);
 	if (len_a-- > 3 && !stack_sorted(*stack))
