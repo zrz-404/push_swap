@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:56:17 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/07 13:18:39 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:37:29 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ static void swap(t_node **head)
 }
 void sa(t_stack *stack) //swap 2 first nodes a
 {
-	swap(&(stack->stack_a));
+	swap(&(stack->a));
 	ft_printf("sa\n");
 }
 
 void sb(t_stack *stack) //swap 2 first nodes b
 {
-	swap(&(stack->stack_b));
+	swap(&(stack->b));
 	ft_printf("sb\n");
 }
 
 void ss(t_stack *stack) // sa and sb
 {
-	swap(&(stack->stack_a));
-	swap(&(stack->stack_b));
+	swap(&(stack->a));
+	swap(&(stack->b));
 	ft_printf("ss\n");
 }
 
@@ -74,38 +74,38 @@ static	void reverse_rotate(t_node **stack)
 
 void ra(t_stack *stack) // rotate a (shift all up by 1, 1st becomes last)
 {
-	rotate(&(stack->stack_a));
+	rotate(&(stack->a));
 	ft_printf("ra\n");
 }
 
 void rb(t_stack *stack) // rotate b (shift all up by 1, 1st becomes last)
 {
-	rotate(&(stack->stack_b));
+	rotate(&(stack->b));
 	ft_printf("rb\n");
 }
 
 void rr(t_stack *stack) // ra and rb
 {
-	rotate(&(stack->stack_a));
-	rotate(&(stack->stack_b));
+	rotate(&(stack->a));
+	rotate(&(stack->b));
 	ft_printf("rr\n");
 }
 
 void rra(t_stack *stack) // reverse rotate a (shift all up by 1, last becomes 1st)
 {
-	reverse_rotate(&(stack->stack_a));
+	reverse_rotate(&(stack->a));
 	ft_printf("rra\n");
 }
 
 void rrb(t_stack *stack) // reverse rotate b (shift all up by 1, last becomes 1st)
 {
-	reverse_rotate(&(stack->stack_b));
+	reverse_rotate(&(stack->b));
 	ft_printf("rrb\n");
 }
 
 void rrr(t_stack *stack) // rra and rrb
 {
-	reverse_rotate(&(stack->stack_a));
+	reverse_rotate(&(stack->a));
 	ft_printf("rra\n");
 }
 
@@ -144,11 +144,11 @@ static void push(t_node **dst, t_node **src) //sou rce and destination of the va
 
 void pa(t_stack *stack) // push a (top of b to top of a)
 {
-	push(&(stack->stack_b), &(stack->stack_a));
+	push(&(stack->b), &(stack->a));
 	ft_printf("pa\n");
 }
 void pb(t_stack *stack) //push b (top of a to top of b)
 {
-	push(&(stack->stack_a), &(stack->stack_b));
+	push(&(stack->a), &(stack->b));
 	ft_printf("pb\n");
 }

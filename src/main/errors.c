@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:09:31 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/06 19:12:07 by zrz              ###   ########.fr       */
+/*   Updated: 2024/10/10 12:37:12 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int dup_error(t_stack *stack, int n)
 {
 	t_node *a;
 
-	a = stack->stack_a; //Assign the address of the stack `a` to the pointer `a`
+	a = stack->a; //Assign the address of the stack `a` to the pointer `a`
 	if (!a) //Check for an empty stack
 		return (0);
 	while (a) //Loop until the end of stack `a` is reached
 	{
-		if (a->val == n) //Check if the current node's value is equal to `n`. Refer to `init_stack_a()`
+		if (a->val == n) //Check if the current node's value is equal to `n`. Refer to `init_a()`
 			return (1);
 		a = a->next; //Move to the next node to check for duplicates
 	}
@@ -55,9 +55,9 @@ void f_stack(t_stack *stack, char stack_name)
 	if (!stack) // Check for an empty stack
 		return;
 	if (stack_name == 'a')
-		current = stack->stack_a;
+		current = stack->a;
 	else if (stack_name == 'b')
-		current = stack->stack_b;
+		current = stack->b;
 	else
 		return; // Invalid stack name
 	while (current) // As long as a node exists in the stack
@@ -68,14 +68,14 @@ void f_stack(t_stack *stack, char stack_name)
 		current = tmp; // Assign `tmp` as the current first node
 	}
 	if (stack_name == 'a')
-		stack->stack_a = NULL;
+		stack->a = NULL;
 	else if (stack_name == 'b')
-		stack->stack_b = NULL;
+		stack->b = NULL;
 }
 
-void f_errors(t_stack *stack_a)
+void f_errors(t_stack *a)
 {
-	f_stack(stack_a, 'a'); // Free stack A
+	f_stack(a, 'a'); // Free stack A
 	ft_putstr_fd("Error\n", 2); // Print error message
 	exit(1); // Exit the program
 }

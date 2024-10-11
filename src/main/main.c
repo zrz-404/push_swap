@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 18:42:00 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/09/26 13:46:02 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:37:22 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ int main(int ac, char **av)
 	}
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
-	init_a(&stacks.stack_a, av + 1);
+	init_a(&stacks.a, av + 1);
 	
-	if (!stack_sorted(stacks.stack_a))
+	if (!stack_sorted(stacks.a))
 	{
-		if (stack_len(stacks.stack_a) == 2)
-			sa(&stacks.stack_a);
-		else if (stack_len(stacks.stack_a) == 3)
-			srt_three(&stacks.stack_a);
+		if (stack_len(stacks.a) == 2)
+			sa(&stacks.a);
+		else if (stack_len(stacks.a) == 3)
+			srt_three(&stacks.a);
 		else
-			srt_stacks(&stacks.stack_a, &stacks.stack_b);
+			srt_stacks(&stacks.a, &stacks.b);
 	}
-	f_errors(&stacks.stack_a);	
+	f_errors(&stacks.a);	
 	return (0);
 }
 

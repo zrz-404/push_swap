@@ -16,15 +16,15 @@
 
 void	init_stacks(t_stack *stacks)
 {
-	stacks->stack_a = NULL;
-	stacks->stack_b = NULL;
+	stacks->a = NULL;
+	stacks->b = NULL;
 }
 
 
 
 
 
-void	init_stack_a(t_node **stack_A, char **av)
+void	init_a(t_node **a, char **av)
 {
 	long	n;
 	int		i;
@@ -33,13 +33,13 @@ void	init_stack_a(t_node **stack_A, char **av)
 	while (av[i])
 	{
 		if (sntx_error(av[i])) // check syntax errors
-			f_errors(stack_A);
+			f_errors(a);
 		n = f_atol(av[i]); // bringing the string vals into long
 		if (n > INT_MAX || n < INT_MIN) // check for overflow
-			f_errors(stack_A);
-		if (dup_error(*stack_A, (int)n))
-			f_errors(stack_A);
-		append_node(stack_A, (int)n); //if no errors, append the node to the linked list by taking a point to A
+			f_errors(a);
+		if (dup_error(*a, (int)n))
+			f_errors(a);
+		append_node(a, (int)n); //if no errors, append the node to the linked list by taking a point to A
 		i++;
 	}
 }

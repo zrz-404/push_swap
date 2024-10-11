@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/09/27 10:23:53 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:36:04 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct s_node {
 } t_node;
 
 typedef struct s_stack {
-	t_node	*stack_a;
-	t_node	*stack_b;
+	t_node	*a;
+	t_node	*b;
 }	t_stack;
 
 
