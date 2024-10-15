@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 18:42:00 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/10 12:37:22 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:14:06 by zrz              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
 
 int main(int ac, char **av)
 {
-	t_stack stacks;
+	t_node *a;
+	t_node *b;
 
-	init_stacks(&stacks);
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 	{
 		ft_putstr_fd("Error\n", 3);
@@ -24,18 +24,18 @@ int main(int ac, char **av)
 	}
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
-	init_a(&stacks.a, av + 1);
+	init_a(&a, av + 1); //passing the address of the first element of the array of strings
 	
-	if (!stack_sorted(stacks.a))
+	if (!stack_sorted(a))
 	{
-		if (stack_len(stacks.a) == 2)
-			sa(&stacks.a);
-		else if (stack_len(stacks.a) == 3)
-			srt_three(&stacks.a);
+		if (link_len(a) == 2)
+			sa(&a);
+		else if (link_len(a) == 3)
+			sort_three(&a); //sort the 3 nodes of the stack
 		else
-			srt_stacks(&stacks.a, &stacks.b);
+			sort_stacks(&a, &b);
 	}
-	f_errors(&stacks.a);	
+	f_errors(&a);	
 	return (0);
 }
 

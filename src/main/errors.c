@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:09:31 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/10 12:37:12 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:15:42 by zrz              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
 
 int sntx_error(char *str_n)
 {
@@ -31,35 +31,27 @@ int sntx_error(char *str_n)
 	return (0);
 }
 
-int dup_error(t_stack *stack, int n)
+int dup_error(t_node *stack, int n)
 {
-	t_node *a;
-
-	a = stack->a; //Assign the address of the stack `a` to the pointer `a`
-	if (!a) //Check for an empty stack
+	if (!stack) //Check for an empty stack
 		return (0);
-	while (a) //Loop until the end of stack `a` is reached
+	while (stack) //Loop until the end of the stack
 	{
-		if (a->val == n) //Check if the current node's value is equal to `n`. Refer to `init_a()`
+		if (stack->val == n) //Check if the value of the current node is equal to the input number
 			return (1);
-		a = a->next; //Move to the next node to check for duplicates
+		stack = stack->next; //Move to the next node to check for duplicates
 	}
 	return (0);
 }
 
-void f_stack(t_stack *stack, char stack_name)
+void f_stack(t_node **stack) // Free the stack
 {
-	t_node *tmp; // To store the next node in the stack before the current node is freed
-	t_node *current;
+	t_node	*tmp; // To store the next node in the stack before the current node is freed
+	t_node	*current;
 
 	if (!stack) // Check for an empty stack
 		return;
-	if (stack_name == 'a')
-		current = stack->a;
-	else if (stack_name == 'b')
-		current = stack->b;
-	else
-		return; // Invalid stack name
+	current = *stack; // Assign the first node of the stack to `current`
 	while (current) // As long as a node exists in the stack
 	{
 		tmp = current->next; // Assign to `tmp` the pointer to the next node
@@ -67,15 +59,12 @@ void f_stack(t_stack *stack, char stack_name)
 		free(current); // Free the current node, deallocating the memory occupied by that node
 		current = tmp; // Assign `tmp` as the current first node
 	}
-	if (stack_name == 'a')
-		stack->a = NULL;
-	else if (stack_name == 'b')
-		stack->b = NULL;
+	*stack = NULL; // Assign the stack to `NULL` after freeing all nodes
 }
 
-void f_errors(t_stack *a)
+void f_errors(t_node **stack)
 {
-	f_stack(a, 'a'); // Free stack A
+	f_stack(stack);
 	ft_putstr_fd("Error\n", 2); // Print error message
-	exit(1); // Exit the program
+	exit(1);
 }

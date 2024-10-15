@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 16:55:24 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/07/23 11:13:25 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/14 17:41:01 by zrz              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define LO_SYM			"0123456789abcdef"
 # define UP_SYM			"0123456789ABCDEF"
 
-# include "./libft.h" //libft
+# include "../libft.h" //libft
 # include <stdarg.h> // variadic funcs
 # include <stdio.h> // real printf
 # include <stdlib.h> // malloc free
