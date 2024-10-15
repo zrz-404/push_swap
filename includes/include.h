@@ -6,35 +6,34 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/10/15 22:50:31 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/15 23:04:59 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
+#ifndef INCLUDE_H
+# define INCLUDE_H
 
 # include "../libft/libft.h"
 # include <stdbool.h>
 # include <limits.h>
 
-typedef struct s_node {
-	int			val;
-	int			index;
-	int			p_cost;
-	bool		cheapest;
-	bool		above_median;
+typedef struct s_node
+{
+	int				val;
+	int				index;
+	int				p_cost;
+	bool			cheapest;
+	bool			above_median;
 
-	struct s_node		*next;
-	struct s_node		*prev;
-	struct s_node 		*target;
-} t_node;
+	struct s_node	*next;
+	struct s_node	*prev;
+	struct s_node	*target;
+}	t_node;
 
 // typedef struct s_stack {
 // 	t_node	*a;
 // 	t_node	*b;
 // }	t_stack;
-
 
 // Stack init
 t_node	*find_min(t_node *node);

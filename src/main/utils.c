@@ -6,26 +6,25 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:33:16 by zrz               #+#    #+#             */
-/*   Updated: 2024/10/15 18:27:23 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/15 23:22:14 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/include.h"
 
-
-int link_len(t_node *stack)
+int	link_len(t_node *stack)
 {
-	int	count;
+	int	len;
 
-	if (!stack) 
+	if (!stack)
 		return (0);
-	count = 0;
+	len = 0;
 	while (stack)
 	{
 		stack = stack->next;
-		count++;
+		len++;
 	}
-	return (count);
+	return (len);
 }
 
 t_node	*find_last(t_node *node)
@@ -45,7 +44,7 @@ bool	stack_sorted(t_node *node)
 	{
 		if (node->val > node->next->val)
 			return (false);
-		node = node->next; 
+		node = node->next;
 	}
 	return (true);
 }
@@ -67,7 +66,7 @@ t_node	*find_min(t_node *node)
 		}
 		node = node->next;
 	}
-	return (min_node); 
+	return (min_node);
 }
 
 t_node	*find_max(t_node *stack)
@@ -90,8 +89,7 @@ t_node	*find_max(t_node *stack)
 	return (max_node);
 }
 
-
-/*	BASIC UTILS 
+/*	BASIC UTILS
 	functions for:
 	- Error handling
 	- Doing the Operations

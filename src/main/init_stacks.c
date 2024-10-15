@@ -1,4 +1,4 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:09:37 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/09/13 10:11:16 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/15 23:19:11 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static long	ft_atol(const char *str)
 	return (n * sign);
 }
 
-static void append_node(t_node **stack, int n)
+static void	append_node(t_node **stack, int n)
 {
 	t_node	*new_node;
 	t_node	*last_node;
 
 	if (!stack)
-		return;
+		return ;
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		f_errors(stack);
@@ -69,14 +69,14 @@ void	init_a(t_node **a, char **av)
 	i = 0;
 	while (av[i])
 	{
-		if (sntx_error(av[i])) // check syntax errors
+		if (sntx_error(av[i]))
 			f_errors(a);
-		n = ft_atol(av[i]); // bringing the string vals into long
-		if (n > INT_MAX || n < INT_MIN) // check for overflow
+		n = ft_atol(av[i]);
+		if (n > INT_MAX || n < INT_MIN)
 			f_errors(a);
 		if (dup_error(*a, (int)n))
 			f_errors(a);
-		append_node(a, (int)n); //if no errors, append the node to the linked list by taking a point to A
+		append_node(a, (int)n);
 		i++;
 	}
 }

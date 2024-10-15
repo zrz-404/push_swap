@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:04:28 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 21:23:43 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/15 23:10:07 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,15 @@ static void	rotate_both(t_node **a,
 	current_index(*b);
 }
 
-static void	rev_rotate_both(t_node **a,
-								t_node **b,
-								t_node *cheapest_node)
-{
-	while (*b != cheapest_node->target
-		&& *a != cheapest_node)
-		rrr(a, b);
-	current_index(*a);
-	current_index(*b);
-}
-
 static void	move_a_to_b(t_node **a, t_node **b)
 {
 	t_node	*cheapest_node;
 
-	cheapest_node = get_cheapest(*a); 
-	if (cheapest_node->above_median 
+	cheapest_node = get_cheapest(*a);
+	if (cheapest_node->above_median
 		&& cheapest_node->target->above_median)
 		rotate_both(a, b, cheapest_node);
-	else if (!(cheapest_node->above_median) 
+	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target->above_median))
 		rev_rotate_both(a, b, cheapest_node);
 	prep_push(a, cheapest_node, 'a');
@@ -50,17 +39,17 @@ static void	move_a_to_b(t_node **a, t_node **b)
 	pb(b, a);
 }
 
-static void	move_b_to_a(t_node **a, t_node **b) //Define a function that prepares `b`'s target `a` nodes for pushing all `b` nodes back to stack `a` 
+static void	move_b_to_a(t_node **a, t_node **b)
 {
-	prep_push(a, (*b)->target, 'a'); //Ensure `b`'s target `a` node is on top of the stack
-	pa(a, b); 
+	prep_push(a, (*b)->target, 'a');
+	pa(a, b);
 }
 
-static void	min_on_top(t_node **a) //moves the smallest number to the top
+static void	min_on_top(t_node **a)
 {
-	while ((*a)->val != find_min(*a)->val) //As long as the smallest number is not at the top
+	while ((*a)->val != find_min(*a)->val)
 	{
-		if (find_min(*a)->above_median) //Rotate or reverse rotate according to the position of the node on the median
+		if (find_min(*a)->above_median)
 			ra(a);
 		else
 			rra(a);

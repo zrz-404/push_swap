@@ -6,13 +6,13 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:39:22 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 22:50:46 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/15 23:17:59 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/include.h"
 
-static void target_b(t_node *a, t_node *b )
+static void	target_b(t_node *a, t_node *b )
 {
 	t_node	*current_a;
 	t_node	*target;
@@ -22,17 +22,17 @@ static void target_b(t_node *a, t_node *b )
 	{
 		best_match_i = LONG_MAX;
 		current_a = a;
-		while(current_a) //while the pointer is not set to null
+		while (current_a)
 		{
 			if (current_a->val > b->val
-				&& current_a->val < best_match_i) // check if 'a' val is bigger then the b node and smaller than the closest buggest number so far
+				&& current_a->val < best_match_i)
 			{
 				best_match_i = current_a->val;
 				target = current_a;
 			}
 			current_a = current_a->next;
 		}
-		if (best_match_i == LONG_MAX) //if the best match alue has not changed
+		if (best_match_i == LONG_MAX)
 			b->target = find_min(a);
 		else
 			b->target = target;

@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:28:38 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 21:20:50 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/15 23:20:42 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
-char **split(char *s, char c)
+char	**split(char *s, char c)
 {
 	int		words_count;
 	char	**result_array;
@@ -76,7 +76,7 @@ char **split(char *s, char c)
 			if (!result_array[i])
 				return (NULL);
 			result_array[i++][0] = '\0';
-			continue;
+			continue ;
 		}
 		result_array[i++] = get_next_word(s, c);
 	}
