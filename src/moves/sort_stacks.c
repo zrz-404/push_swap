@@ -3,27 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:04:28 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 14:09:07 by zrz              ###   ########.fr       */
+/*   Updated: 2024/10/15 21:23:43 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/include.h"
-
-t_node *get_cheapest(t_node *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack)
-	{
-		if (stack->cheapest)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
-}
 
 static void	rotate_both(t_node **a,
 						t_node **b,
@@ -69,7 +56,7 @@ static void	move_b_to_a(t_node **a, t_node **b) //Define a function that prepare
 	pa(a, b); 
 }
 
-static void	min_on_top(t_node **a) //Define a function that moves the smallest number to the top
+static void	min_on_top(t_node **a) //moves the smallest number to the top
 {
 	while ((*a)->val != find_min(*a)->val) //As long as the smallest number is not at the top
 	{
@@ -91,7 +78,7 @@ void	sort_stacks(t_node **a, t_node **b)
 		pb(b, a);
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
-		init_nodes_a(*a, *b);
+		init_ab(*a, *b);
 		move_a_to_b(a, b);
 	}
 	sort_three(a);

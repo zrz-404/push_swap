@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:56:17 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 14:13:28 by zrz              ###   ########.fr       */
+/*   Updated: 2024/10/15 21:51:51 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ static void swap(t_node **head)
 void	sa(t_node **a) //swap 2 first nodes a
 {
 	swap(a);
-	ft_printf("sa\n");
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_node **b) //swap 2 first nodes b
 {
 	swap(b);
-	ft_printf("sb\n");
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_node **a, t_node **b) // sa and sb
 {
 	swap(a);
 	swap(b);
-	ft_printf("ss\n");
+	ft_putstr_fd("ss\n", 1);
 }

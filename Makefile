@@ -2,8 +2,8 @@
 NAME				= push_swap
 
 # Directories
-LIBFT				= includes/libft/libft.a
-INC					= inc/
+LIBFT				= libft/libft.a
+INC					= includes/
 SRC_DIR				= src/
 OBJ_DIR				= obj/
 
@@ -21,6 +21,7 @@ MOVES_DIR		=	$(SRC_DIR)moves/push.c \
 					$(SRC_DIR)moves/swap.c
 
 MAIN_DIR		=	$(SRC_DIR)main/main.c \
+					$(SRC_DIR)main/split.c \
 					$(SRC_DIR)main/utils.c \
 					$(SRC_DIR)main/errors.c \
 					$(SRC_DIR)main/init_ab.c \
@@ -32,7 +33,7 @@ SRCS 				= $(MOVES_DIR) $(MAIN_DIR)
 OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # Rules
-start:				
+start:
 					@make all
 
 $(LIBFT):
@@ -59,3 +60,5 @@ fclean: 			clean
 re: 				fclean all
 
 .PHONY: 			start all clean fclean re
+
+

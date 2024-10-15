@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:09:47 by zrz               #+#    #+#             */
-/*   Updated: 2024/10/14 17:43:30 by zrz              ###   ########.fr       */
+/*   Updated: 2024/10/15 21:50:51 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ static void	rotate(t_node **stack)
 void ra(t_node **a) // rotate a (shift all up by 1, 1st becomes last)
 {
 	rotate(a);
-	ft_printf("ra\n");
+	ft_putstr_fd("ra\n", 1);
 }
 
 void rb(t_node **b) // rotate b (shift all up by 1, 1st becomes last)
 {
 	rotate(b);
-	ft_printf("rb\n");
+	ft_putstr_fd("rb\n", 1);
 }
 
 void rr(t_node **a, t_node **b) // ra and rb
 {
 	rotate(a);
 	rotate(b);
-	ft_printf("rr\n");
+	ft_putstr_fd("rr\n", 1);
 }

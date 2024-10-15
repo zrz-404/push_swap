@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ab.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:39:17 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/13 17:53:59 by zrz              ###   ########.fr       */
+/*   Updated: 2024/10/15 21:22:56 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void set_cheapest(t_node *stack)
 	cheapest_node->cheapest = true;
 }
 
-void init_nodes_a(t_node *a, t_node *b)
+void init_ab(t_node *a, t_node *b)
 {
 	current_index(a);
 	current_index(b);

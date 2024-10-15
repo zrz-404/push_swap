@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   include.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/10/15 14:08:10 by zrz              ###   ########.fr       */
+/*   Updated: 2024/10/15 22:50:31 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define PUSH_SWAP_H
 
 
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 # include <stdbool.h>
-# include <stdlib.h>
 # include <limits.h>
 
 typedef struct s_node {
@@ -38,14 +37,13 @@ typedef struct s_node {
 
 
 // Stack init
-// Stack init
 t_node	*find_min(t_node *node);
 t_node	*find_max(t_node *stack);
 
 // Nodes init
 void	init_a(t_node **a, char **av);
 void	init_ba(t_node *a, t_node *b);
-void	init_nodes_a(t_node *a, t_node *b);
+void	init_ab(t_node *a, t_node *b);
 
 // Stack utils
 int		link_len(t_node *stack);
@@ -54,6 +52,7 @@ void	set_cheapest(t_node *stack);
 void	current_index(t_node *stack);
 t_node	*get_cheapest(t_node *stack);
 t_node	*find_last(t_node *node);
+char	**split(char *s, char c);
 
 // Moves
 void	pa(t_node **a, t_node **b);

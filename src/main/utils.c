@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zrz <zrz@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:33:16 by zrz               #+#    #+#             */
-/*   Updated: 2024/10/15 14:14:22 by zrz              ###   ########.fr       */
+/*   Updated: 2024/10/15 18:27:23 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,17 @@
 
 int link_len(t_node *stack)
 {
-	if (stack == NULL)
+	int	count;
+
+	if (!stack) 
 		return (0);
-	return (link_len(stack->next) + 1);
+	count = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		count++;
+	}
+	return (count);
 }
 
 t_node	*find_last(t_node *node)
