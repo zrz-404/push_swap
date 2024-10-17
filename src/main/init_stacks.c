@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:09:37 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 23:19:11 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:12:26 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	init_a(t_node **a, char **av)
 	while (av[i])
 	{
 		if (sntx_error(av[i]))
-			f_errors(a);
+			f_errors_str(a, av);
 		n = ft_atol(av[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			f_errors(a);

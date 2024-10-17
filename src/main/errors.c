@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:09:31 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 23:14:55 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:04:29 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,23 @@ int	dup_error(t_node *stack, int n)
 	return (0);
 }
 
+void	free_the_world(t_node **stack, char **av_temp)
+{
+	int	i;
+
+	(void)stack;
+	i = 0;
+	if (av_temp)
+	{
+		while (av_temp[i])
+		{
+			free(av_temp[i]);
+			i++;
+		}
+		free(av_temp);
+	}
+}
+
 void	f_stack(t_node **stack)
 {
 	t_node	*tmp;
@@ -53,10 +70,10 @@ void	f_stack(t_node **stack)
 	while (current)
 	{
 		tmp = current->next;
-		current->val = 0;
 		free(current);
 		current = tmp;
 	}
+	free(current);
 	*stack = NULL;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:39:22 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 23:17:59 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:10:41 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	target_b(t_node *a, t_node *b )
 
 void	init_ba(t_node *a, t_node *b)
 {
-	current_index(a);
-	current_index(b);
+	current_index(&a);
+	current_index(&b);
 	target_b(a, b);
 }

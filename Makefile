@@ -2,23 +2,24 @@
 NAME				= push_swap
 
 # Directories
-LIBFT				= libft/libft.a
-INC					= includes/
+LIBFT				= ./libft/libft.a
+INC					= -I includes/
 SRC_DIR				= src/
 OBJ_DIR				= obj/
 
 # Compiler and CFlags
 CC					= gcc
-CFLAGS				= -Wall -Werror -Wextra -I
+CFLAGS				= -Wall -Werror -Wextra -g
 RM					= rm -f
 
 # Source Files
 MOVES_DIR		=	$(SRC_DIR)moves/push.c \
-					$(SRC_DIR)moves/rev_rotate.c \
+					$(SRC_DIR)moves/swap.c \
 					$(SRC_DIR)moves/rotate.c \
-					$(SRC_DIR)moves/sort_stacks.c \
 					$(SRC_DIR)moves/sort_three.c \
-					$(SRC_DIR)moves/swap.c
+					$(SRC_DIR)moves/rev_rotate.c \
+					$(SRC_DIR)moves/sort_stacks.c \
+					$(SRC_DIR)moves/sort_stacks_utils.c
 
 MAIN_DIR		=	$(SRC_DIR)main/main.c \
 					$(SRC_DIR)main/split.c \

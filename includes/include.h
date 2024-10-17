@@ -6,7 +6,7 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:31:43 by zrz               #+#    #+#             */
-/*   Updated: 2024/10/15 23:04:59 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:53:41 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	init_ab(t_node *a, t_node *b);
 // Stack utils
 int		link_len(t_node *stack);
 bool	stack_sorted(t_node *node);
-void	set_cheapest(t_node *stack);
-void	current_index(t_node *stack);
+void	set_cheapest(t_node **stack);
+void	current_index(t_node **stack);
 t_node	*get_cheapest(t_node *stack);
 t_node	*find_last(t_node *node);
 char	**split(char *s, char c);
@@ -66,6 +66,17 @@ void	sa(t_node **a);
 void	sb(t_node **b);
 void	ss(t_node **a, t_node **b);
 
+//sort stacks
+void	rotate_both(t_node **a,
+			t_node **b,
+			t_node *cheapest_node);
+void	rev_rotate_both(t_node **a,
+			t_node **b,
+			t_node *cheapest_node);
+void	move_a_to_b(t_node **a, t_node **b);
+void	move_b_to_a(t_node **a, t_node **b);
+void	min_on_top(t_node **a);
+
 // Algorithm stuff
 void	sort_three(t_node **a);
 void	sort_stacks(t_node **a, t_node **b);
@@ -76,5 +87,7 @@ int		sntx_error(char *str_n);
 int		dup_error(t_node *stack, int n);
 void	f_stack(t_node **stack);
 void	f_errors(t_node **stack);
+void	f_errors_str(t_node **stack, char **av);
+void	free_the_world(t_node **stack, char **av_temp);
 
 #endif

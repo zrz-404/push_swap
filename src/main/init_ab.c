@@ -6,29 +6,31 @@
 /*   By: jroseiro <jroseiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:39:17 by jroseiro          #+#    #+#             */
-/*   Updated: 2024/10/15 23:17:10 by jroseiro         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:10:24 by jroseiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/include.h"
 
-void	current_index(t_node *stack)
+void	current_index(t_node **stack)
 {
-	int	i;
-	int	median;
+	int		i;
+	int		median;
+	t_node	*temp;
 
 	i = 0;
 	if (!stack)
 		return ;
-	median = link_len(stack) / 2;
-	while (stack)
+	temp = *stack;
+	median = link_len(temp) / 2;
+	while (temp)
 	{
-		stack->index = i;
+		temp->index = i;
 		if (i <= median)
-			stack->above_median = true;
+			temp->above_median = true;
 		else
-			stack->above_median = false;
-		stack = stack->next;
+			temp->above_median = false;
+		temp = temp->next;
 		++i;
 	}
 }
@@ -81,31 +83,33 @@ static void	cost_a(t_node *a, t_node *b)
 	}
 }
 
-void	set_cheapest(t_node *stack)
+void	set_cheapest(t_node **stack)
 {
 	long	cheapest_val;
 	t_node	*cheapest_node;
+	t_node	*temp;
 
 	if (!stack)
 		return ;
+	temp = *stack;
 	cheapest_val = LONG_MAX;
-	while (stack)
+	while (temp)
 	{
-		if (stack->p_cost < cheapest_val)
+		if (temp->p_cost < cheapest_val)
 		{
-			cheapest_val = stack->p_cost;
-			cheapest_node = stack;
+			cheapest_val = temp->p_cost;
+			cheapest_node = temp;
 		}
-		stack = stack->next;
+		temp = temp->next;
 	}
 	cheapest_node->cheapest = true;
 }
 
 void	init_ab(t_node *a, t_node *b)
 {
-	current_index(a);
-	current_index(b);
+	current_index(&a);
+	current_index(&b);
 	set_target_a(a, b);
 	cost_a(a, b);
-	set_cheapest(a);
+	set_cheapest(&a);
 }
